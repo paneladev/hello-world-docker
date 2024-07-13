@@ -11,6 +11,9 @@ FROM amazoncorretto:17-alpine-jdk
 
 COPY --from=build /app/target/hello-docker-v1.jar /app/app.jar
 
+ARG name
+ENV DOCKER_APP $name
+
 WORKDIR /app
 
 EXPOSE 8080
